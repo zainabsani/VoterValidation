@@ -1,0 +1,40 @@
+<! DOCTYPE html>
+<html>
+<body>
+
+<h3>Task 3</h3>
+<p> Voter Validation: the user is to be 18 years of age by tomorrow it simply means the person cannot vote today
+<hr>
+
+
+<p id="demo"></p>
+
+<script>
+
+function getAge(dob2) {
+    const dArr = dob2.split("/");
+    var today = new Date();
+    var age = today.getFullYear() - dArr[2];
+    var month = today.getMonth() - dArr[1];
+    if(month < 0 || (month === 0 && today.getDate() < dArr[0])) {
+        age--;
+    }
+    return age;
+}
+
+var dob = prompt("Enter your date of birth (DD/MM/YYYY):");
+
+var t = new Date();
+age = getAge(dob);
+
+if (age > 17) {
+document.getElementById("demo").innerHTML = "You are ELIGIBLE to vote because you are " + age + " years old! "+t;
+}
+
+else { document.getElementById("demo").innerHTML = "You are ineligible to vote because you are " + age + " years old. ";
+}
+
+</script>
+
+</body>
+</html>
